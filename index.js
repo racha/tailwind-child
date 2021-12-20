@@ -2,7 +2,7 @@ const plugin = require('tailwindcss/plugin');
 
 const childSelect = plugin(function ({ addVariant, theme, e }) {
   const childEls = theme('childElements');
-  HTMLTags.forEach(tag => {
+  childEls.forEach(tag => {
     addVariant(`child-${tag}`, ({ modifySelectors, separator }) => {
       modifySelectors(({ className }) => {
         const newClass = e(`child-${tag}${separator}${className}`);
