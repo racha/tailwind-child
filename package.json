@@ -1,6 +1,6 @@
 {
   "name": "@stefanracic/tailwind-child",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A Tailwind Plugin that allows you to style child elements by applying tailwind classes to their parent.",
   "main": "index.js",
   "scripts": {
