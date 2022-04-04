@@ -1,20 +1,10 @@
 const plugin = require('tailwindcss/plugin');
 
-const childSelect = plugin(function ({ addVariant, theme, e }) {
+const childSelect = plugin(function ({addVariant, theme}) {
   const childTags = theme('childTags');
   Object.entries(childTags).map(([key, value]) => {
-    addVariant(`child-${key}`, ({ modifySelectors, separator }) => {
-      modifySelectors(({ className }) => {
-        const newClass = e(`child-${key}${separator}${className}`);
-        return `.${newClass} ${value}`
-      })
-    });
-    addVariant(`direct-child-${key}`, ({ modifySelectors, separator }) => {
-      modifySelectors(({ className }) => {
-        const newClass = e(`direct-child-${key}${separator}${className}`);
-        return `.${newClass} > ${value}`
-      })
-    });
+    addVariant(`child-${key}`, `& ${value}`);
+    addVariant(`direct-child-${key}`, `& > ${value}`);
   })
 },
 {
